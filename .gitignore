@@ -1,6 +1,7 @@
 testing.db
 
 .idea/
+.idea
 
 # dotenv
 .env
