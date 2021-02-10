@@ -36,9 +36,13 @@ def flushDb(cur):
     stmt = cur.cursor()
     stmt.executescript(sql_script)
     cur.commit()
+<<<<<<< HEAD
     cur.close()
     os.system("sqlite3 /sqlite/cs205/testing.db \".mode csv\" \".import Losers.csv Losers\"")
     os.system("sqlite3 /sqlite/cs205/testing.db \".mode csv\" \".import Insults.csv Insults\"")
 
 
 
+=======
+  
+>>>>>>> 8ccfe192d9a77b2048ddff00094e104a2477cc5c
