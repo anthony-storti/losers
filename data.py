@@ -35,4 +35,4 @@ def flushDb(cur):
     stmt = cur.cursor()
     stmt.executescript(sql_script)
     cur.commit()
-    cur.close()
+  
