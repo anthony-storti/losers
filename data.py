@@ -30,19 +30,7 @@ def insertInsult(cur, titles):
 # This will flush the tables and read and import csv data through the bash
 
 
-def flushDb(cur):
-    with open('testing.sql', 'r') as sql_file:
-        sql_script = sql_file.read()
-    stmt = cur.cursor()
-    stmt.executescript(sql_script)
-    cur.commit()
-<<<<<<< HEAD
-    cur.close()
-    os.system("sqlite3 /sqlite/cs205/testing.db \".mode csv\" \".import Losers.csv Losers\"")
-    os.system("sqlite3 /sqlite/cs205/testing.db \".mode csv\" \".import Insults.csv Insults\"")
+def init_db():
+    os.system("sqlite3 data.db \".read create.sql\" \".mode csv\" \".import Losers.csv Losers\" \".import Insults.csv Insults\"")
 
 
-
-=======
-  
->>>>>>> 8ccfe192d9a77b2048ddff00094e104a2477cc5c
