@@ -1,4 +1,5 @@
 #import sqlite
+import os
 import sqlite3
 from sqlite3 import Error
 
@@ -26,7 +27,7 @@ def insertInsult(cur, titles):
     cursorObject.execute('''INSERT INTO Insults(insult_id, tweet, data, insult, loser_id) VALUES(?,?,?,?,?)''', titles)
     cur.commit()
 
-# defining the sql db flush
+# This will flush the tables and read and import csv data through the bash
 
 
 def flushDb(cur):
@@ -36,3 +37,8 @@ def flushDb(cur):
     stmt.executescript(sql_script)
     cur.commit()
     cur.close()
+    os.system("sqlite3 /sqlite/cs205/testing.db \".mode csv\" \".import Losers.csv Losers\"")
+    os.system("sqlite3 /sqlite/cs205/testing.db \".mode csv\" \".import Insults.csv Insults\"")
+
+
+

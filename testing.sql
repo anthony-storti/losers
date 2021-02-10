@@ -1,5 +1,3 @@
-PRAGMA foreign_keys = on;
-
 DROP TABLE IF EXISTS Losers;
 
 CREATE TABLE [Losers] (
@@ -9,9 +7,13 @@ CREATE TABLE [Losers] (
 [occupation] TEXT NOT NULL
 );
 
+PRAGMA foreign_keys = off;
+
 DROP TABLE IF EXISTS Insults;
 
-CREATE TABLE IF NOT EXISTS [Insults] (
+PRAGMA foreign_keys = on;
+
+CREATE TABLE [Insults] (
 [insult_id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 [tweet] TEXT NOT NULL,
 [date] DATE NOT NULL,
