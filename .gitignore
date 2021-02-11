@@ -2,6 +2,7 @@ data.db
 testing.db
 
 .idea/
+.idea
 
 # dotenv
 .env
