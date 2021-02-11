@@ -34,12 +34,15 @@ def init_db():
     os.system("sqlite3 data.db \".read create.sql\" \".mode csv\" \".import Losers.csv Losers\" \".import Insults.csv Insults\"")
 
 
-def fetch(cur, table, column, id, userInput, table2="null"):
-    if table2 != "null":
-        return "write Join statement"
+def fetch(cur, userInput, table="null", column="null", id="null"):
+    cursor = cur.cursor()
+    if table == "null":
+        script = "SELECT tweet FROM Insults i, Losers l Where l.loser_id = i.loser_id  AND l.name = " +"\""+userInput+"\""
+        cursor.execute(script)
+        row = cursor.fetchone()
+        return row[0]
 
     script = "SELECT "+column+" FROM "+table+" WHERE "+id+" = "+"\""+userInput+"\""
-    cursor = cur.cursor()
     cursor.execute(script)
     row = cursor.fetchone()
     return row[0]

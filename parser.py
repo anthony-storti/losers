@@ -2,8 +2,8 @@ import data
 
 data.init_db()
 cur = data.sqliteConnect()
-print(data.fetch(cur, "Insults", "date", "insult", "dummy"))
-print(data.fetch(cur, "Insults", "date", "insult", "dummy", "Loser"))
+print(data.fetch(cur, "dummy", "Insults", "date", "insult"))
+print(data.fetch(cur, "Rick-Perry"))
 
 
 
