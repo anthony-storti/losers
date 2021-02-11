@@ -1,5 +1,6 @@
 #import sqlite
 import os
+import subprocess
 import sqlite3
 from sqlite3 import Error
 
@@ -8,7 +9,7 @@ from sqlite3 import Error
 
 def sqliteConnect():
     try:
-        cur = sqlite3.connect('/sqlite/cs205/testing.db')
+        cur = sqlite3.connect('data.db')
         return cur
     except Error:
         print(Error)
@@ -29,8 +30,15 @@ def insertInsult(cur, titles):
 
 # This will flush the tables and read and import csv data through the bash
 
-
 def init_db():
     os.system("sqlite3 data.db \".read create.sql\" \".mode csv\" \".import Losers.csv Losers\" \".import Insults.csv Insults\"")
+
+
+def fetch(cur, table, column, id, userInput, ):
+    script = "SELECT "+column+" FROM "+table+" WHERE "+id+" = "+"\""+userInput+"\""
+    cursor = cur.cursor()
+    cursor.execute(script)
+    row = cursor.fetchone()
+    return row[0]
 
 
