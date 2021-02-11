@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Losers;
 
 CREATE TABLE [Losers] (
-[loser_id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+[loser_id] varchar(5) PRIMARY KEY,
 [name] TEXT NOT NULL,
 [twitter_handle] TEXT NOT NULL,
 [occupation] TEXT NOT NULL
@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS Insults;
 PRAGMA foreign_keys = on;
 
 CREATE TABLE [Insults] (
-[insult_id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+[insult_id] varchar(7) PRIMARY KEY,
 [tweet] TEXT NOT NULL,
 [date] DATE NOT NULL,
 [insult] TEXT NOT NULL,
