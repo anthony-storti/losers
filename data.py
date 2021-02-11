@@ -8,7 +8,7 @@ from sqlite3 import Error
 
 def sqliteConnect():
     try:
-        cur = sqlite3.connect('/sqlite/cs205/testing.db')
+        cur = sqlite3.connect('data.db')
         return cur
     except Error:
         print(Error)
