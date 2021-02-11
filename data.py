@@ -34,7 +34,10 @@ def init_db():
     os.system("sqlite3 data.db \".read create.sql\" \".mode csv\" \".import Losers.csv Losers\" \".import Insults.csv Insults\"")
 
 
-def fetch(cur, table, column, id, userInput, ):
+def fetch(cur, table, column, id, userInput, table2="null"):
+    if table2 != "null":
+        return "write Join statement"
+
     script = "SELECT "+column+" FROM "+table+" WHERE "+id+" = "+"\""+userInput+"\""
     cursor = cur.cursor()
     cursor.execute(script)
