@@ -1,5 +1,6 @@
 import sqlite3
 # function to take a string input and break it up into a list of components, being mindful of quotation marks
+
 def inputToList(userInput):
     userInput = userInput.lower()
     output = []
@@ -11,40 +12,26 @@ def inputToList(userInput):
         if (userInput[i] == "'") or (userInput[i] == '"'):
             multi = True
             indexOne = i
-            return
-        return
+            break
+
     #find second quote if any
-    for i in range(indexOne,len(userInput)):
-        if (userInput[i] == "'") or (userInput[i] == '"'):
-            multi = True
-            indexTwo = i
-            return
-        return
+    for j in range(indexOne+1, len(userInput)):
+        if (userInput[j] == "'") or (userInput[j] == '"'):
+            indexTwo = j
+            break
+
     if multi:
         output = userInput[0:indexOne].split()
         if userInput[indexOne] == "'":
-            output = userInput[indexOne:indexTwo].split("\'")
+            output += userInput[indexOne:indexTwo].split("'")
         elif userInput[indexOne] == '"':
-            output = userInput[indexOne:indexTwo].split("\"")
-        output = userInput[indexTwo:].split()
+            output += userInput[indexOne+1:indexTwo].split('"')
+        output += userInput[indexTwo:].split()
     else:
-        output = userInput.split()
+        output += userInput.split()
 
+    return output
 
-
-
-#function to validate input for errors, typos, that kinda thing
-def validateInput(userInput):
-
-#function to print commands
-def printHelp():
-
-
-# function to identify individual terms as tables, columns, etc
-
-
-#function to run the querys
-def do_query(x,y,z):
 
 
 
