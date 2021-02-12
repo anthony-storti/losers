@@ -1,38 +1,39 @@
 
-def main():
-
 from parserFunctions import inputToList
 from parserFunctions import validateInput
-
-
-string = "heyo this is a test of a 'magnificient function'"
-print(inputToList(string))
+def main():
 
 
 
-# validation function testing
-regularTestTrue = ["Date", "insult", "Search term"]
-regularTestFalse = ["bobdole", "insult", "search"]
-tooSmall = ["not", "enough"]
-tooBig = ["way", "too", "long", "filler", "words"]
-joinTestTrue = ["tweet", "insult", "loser", "search"]
-joinTestFalse = ["insult", "tweet", "loser", "search"]
+    string = "heyo this is a test of a 'magnificient function'"
+    print(inputToList(string))
 
-# true
-print(validateInput(regularTestTrue))
 
-# false
-print(validateInput(regularTestFalse))
 
-# false
-print(validateInput(tooBig))
+    # validation function testing
+    regularTestTrue = ["Date", "insult", "Search term"]
+    regularTestFalse = ["bobdole", "insult", "search"]
+    tooSmall = ["not", "enough"]
+    tooBig = ["way", "too", "long", "filler", "words"]
+    joinTestTrue = ["tweet", "insult", "loser", "search"]
+    joinTestFalse = ["insult", "tweet", "loser", "search"]
 
-# false
-print(validateInput(tooSmall))
+    # true
+    print(validateInput(regularTestTrue))
 
-# true
-print(validateInput(joinTestTrue))
+    # false
+    print(validateInput(regularTestFalse))
 
-# false
-print(validateInput(joinTestFalse))
+    # false
+    print(validateInput(tooBig))
 
+    # false
+    print(validateInput(tooSmall))
+
+    # true
+    print(validateInput(joinTestTrue))
+
+    # false
+    print(validateInput(joinTestFalse))
+
+main()
