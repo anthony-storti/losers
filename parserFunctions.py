@@ -24,7 +24,7 @@ def inputToList(userInput):
             output += userInput[indexOne+1:indexTwo].split("'")
         elif userInput[indexOne] == '"':
             output += userInput[indexOne+1:indexTwo].split('"')
-        output += userInput[indexTwo:].split()
+        output += userInput[indexTwo:len(userInput)-1].split()
     else:
         output += userInput.split()
 
