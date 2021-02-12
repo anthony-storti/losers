@@ -1,5 +1,6 @@
 #import sqlite
 import os
+import subprocess
 import sqlite3
 from sqlite3 import Error
 
@@ -29,8 +30,21 @@ def insertInsult(cur, titles):
 
 # This will flush the tables and read and import csv data through the bash
 
-
 def init_db():
     os.system("sqlite3 data.db \".read create.sql\" \".mode csv\" \".import Losers.csv Losers\" \".import Insults.csv Insults\"")
+
+
+def fetch(cur, userInput, table="null", column="null", id="null"):
+    cursor = cur.cursor()
+    if table == "null":
+        script = "SELECT tweet FROM Insults i, Losers l Where l.loser_id = i.loser_id  AND l.name = " +"\""+userInput+"\""
+        cursor.execute(script)
+        row = cursor.fetchone()
+        return row[0]
+
+    script = "SELECT "+column+" FROM "+table+" WHERE "+id+" = "+"\""+userInput+"\""
+    cursor.execute(script)
+    row = cursor.fetchone()
+    return row[0]
 
 
