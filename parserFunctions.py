@@ -29,22 +29,63 @@ def inputToList(userInput):
         output = userInput[indexTwo:].split()
     else:
         output = userInput.split()
+    return
 
 
 
-
-#function to validate input for errors, typos, that kinda thing
+# function to validate input for errors, typos, that kinda thing
+# designed to take in a list of 3 or 4 string components: column, table, (table 2 for join), and search term
+# returns true if the userInput is valid, false otherwise
 def validateInput(userInput):
+    isValid = False
+    column = userInput[0].lower()
+    table = userInput[1].lower()
+    insultTableColumns = ["insult_id", "tweet", "date", "insult", "loser_id"]
+    loserTableColumns = ["loser_id", "name", "twitter_handle", "occupation"]
+    tableNames = ["loser", "insult"]
+
+    # check whether 3 (regular statement) or 4 (join statement) items are in the list
+    # validate regular statement
+    if len(userInput) == 3:
+        # if insult table was selected, check if column is valid
+        if table == "insult":
+            if column in insultTableColumns:
+                isValid = True
+
+        # if Loser table was selected, check if columns are valid
+        if table == "loser":
+            if column in loserTableColumns:
+                isValid = True
+
+    # validate join statement
+    elif len(userInput) == 4:
+        # get the 2nd table name
+        tableTwo = userInput[2].lower()
+        # check that both the tables and the
+        if table in tableNames and tableTwo in tableNames:
+            if column in insultTableColumns or column in loserTableColumns:
+                isValid = True
+
+    # otherwise the input list is too long or too short, return false
+    else:
+        return isValid
+
+    return isValid
+
+
+
+
+
 
 #function to print commands
-def printHelp():
+#def printHelp():
 
 
 # function to identify individual terms as tables, columns, etc
 
 
 #function to run the querys
-def do_query(x,y,z):
+#def do_query(x,y,z):
 
 
 
