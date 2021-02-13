@@ -31,9 +31,18 @@ def command():
     print(data.fetch(cur, name))
 
     # load data example
-    rows = data.fetchAllQueries(cur)
-    for row in rows:
-        print(row)
+    insultT, loserT = data.fetchAllQueries(cur)
+    print("")
+    print("Insults Table")
+    print("")
+    for insult in insultT:
+        print(insult)
+
+    print("")
+    print("Losers Table")
+    print("")
+    for loser in loserT:
+        print(loser)
 
     cur.commit()
     drop_tables()

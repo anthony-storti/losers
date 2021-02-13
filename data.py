@@ -56,10 +56,11 @@ def fetchAllQueries(cur):
     script = "SELECT * FROM Insults"
     script1 = "SELECT * FROM Losers"
     cursor.execute(script)
+    insultTable = cursor.fetchall()
     cursor.execute(script1)
-    rows = cursor.fetchall()
-    if not (rows is None):
-        return rows
+    loserTable = cursor.fetchall()
+    if not (insultTable is None and loserTable is None):
+        return insultTable, loserTable
     else:
         return "Result not found!"
 
