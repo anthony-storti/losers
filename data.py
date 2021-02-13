@@ -45,6 +45,22 @@ def fetch(cur, userInput, table="null", column="null", id="null"):
     script = "SELECT "+column+" FROM "+table+" WHERE "+id+" = "+"\""+userInput+"\""
     cursor.execute(script)
     row = cursor.fetchone()
-    return row[0]
+    if not (row is None):
+        return row[0]
+    else:
+        return "Result not found!"
+
+
+def fetchAllQueries(cur):
+    cursor = cur.cursor()
+    script = "SELECT * FROM Insults"
+    script1 = "SELECT * FROM Losers"
+    cursor.execute(script)
+    cursor.execute(script1)
+    rows = cursor.fetchall()
+    if not (rows is None):
+        return rows
+    else:
+        return "Result not found!"
 
 
