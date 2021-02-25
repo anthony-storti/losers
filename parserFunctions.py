@@ -33,47 +33,42 @@ def inputToList(userInput):
 
 
 # function to validate input for errors, typos, that kinda thing
-# designed to take in a list of 3 or 4 string components: column, table, (table 2 for join), and search term
+# designed to take in a list of 4 string components: column, table, ID, and search term,
+# or just 1 term in the case of a join statement query
 # returns true if the userInput is valid, false otherwise
 def validateInput(userInput):
     isValid = False
-    column = userInput[0].lower()
-    table = userInput[1].lower()
     insultTableColumns = ["insult_id", "tweet", "date", "insult", "loser_id"]
     loserTableColumns = ["loser_id", "name", "twitter_handle", "occupation"]
-    tableNames = ["loser", "insult"]
+    tableNames = ["Losers", "Insults"]
 
-    # check whether 3 (regular statement) or 4 (join statement) items are in the list
-    # validate regular statement
-    if len(userInput) == 3:
-        # if insult table was selected, check if column is valid
-        if table == "insult":
-            if column in insultTableColumns:
+    # check to make sure input list has right number of components
+    if len(userInput) == 4:
+        # get list components
+        column = userInput[0].lower()
+        table = userInput[1]
+        id = userInput[2].lower()
+
+        # if Insults table was selected, check if column and id are valid
+        if table == "Insults":
+            if column in insultTableColumns and id in insultTableColumns:
                 isValid = True
 
-        # if Loser table was selected, check if columns are valid
-        if table == "loser":
-            if column in loserTableColumns:
+        # if Losers table was selected, check if column and id are valid
+        if table == "Losers":
+            if column in loserTableColumns and id in loserTableColumns:
                 isValid = True
 
     # validate join statement
-    elif len(userInput) == 4:
-        # get the 2nd table name
-        tableTwo = userInput[2].lower()
-        # check that both the tables and the
-        if table in tableNames and tableTwo in tableNames:
-            if column in insultTableColumns or column in loserTableColumns:
-                isValid = True
+    elif len(userInput) == 1:
+        # only one term was given (search term) for join statement
+        isValid = True
 
     # otherwise the input list is too long or too short, return false
     else:
         return isValid
 
     return isValid
-
-
-
-
 
 
 #function to print commands

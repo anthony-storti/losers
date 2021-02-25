@@ -14,12 +14,11 @@ def main():
 
 
     # validation function testing
-    regularTestTrue = ["Date", "insult", "Search term"]
-    regularTestFalse = ["bobdole", "insult", "search"]
+    regularTestTrue = ["Date", "Insults", "insult", "Search term"]
+    regularTestFalse = ["Date", "Insult", "insult", "search"]
     tooSmall = ["not", "enough"]
-    tooBig = ["way", "too", "long", "filler", "words"]
-    joinTestTrue = ["tweet", "insult", "loser", "search"]
-    joinTestFalse = ["insult", "tweet", "loser", "search"]
+    tooBig = ["too", "many", "terms", "in", "list"]
+
 
     # true
     print(validateInput(regularTestTrue))
@@ -28,15 +27,10 @@ def main():
     print(validateInput(regularTestFalse))
 
     # false
-    print(validateInput(tooBig))
-
-    # false
     print(validateInput(tooSmall))
 
-    # true
-    print(validateInput(joinTestTrue))
-
     # false
-    print(validateInput(joinTestFalse))
+    print(validateInput(tooBig))
+
 
 main()
