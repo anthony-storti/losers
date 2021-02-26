@@ -40,22 +40,21 @@ def validateInput(userInput):
     isValid = False
     insultTableColumns = ["insult_id", "tweet", "date", "insult", "loser_id"]
     loserTableColumns = ["loser_id", "name", "twitter_handle", "occupation"]
-    tableNames = ["Losers", "Insults"]
 
     # check to make sure input list has right number of components
     if len(userInput) == 4:
         # get list components
         column = userInput[0].lower()
-        table = userInput[1]
+        table = userInput[1].lower()
         id = userInput[2].lower()
 
         # if Insults table was selected, check if column and id are valid
-        if table == "Insults":
+        if table == "insults":
             if column in insultTableColumns and id in insultTableColumns:
                 isValid = True
 
         # if Losers table was selected, check if column and id are valid
-        if table == "Losers":
+        if table == "losers":
             if column in loserTableColumns and id in loserTableColumns:
                 isValid = True
 
