@@ -64,4 +64,9 @@ def fetchAllQueries(cur):
     else:
         return "Result not found!"
 
+def drop_tables(cur):
+    cur.commit()
+    cur.close()
+    subprocess.call("rm data.db")
+
 

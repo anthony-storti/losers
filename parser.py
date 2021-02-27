@@ -1,17 +1,9 @@
 import data
-import subprocess
-import os
-import sys
 
 cur = data.sqliteConnect()
 
-a = sys.argv[1]
-
-
 def command():
     data.init_db()
-
-    name = str(a)
 
     # Formats for selecting items on Insults table
     # select date from Insult table by insult example
@@ -46,12 +38,5 @@ def command():
 
     cur.commit()
     drop_tables()
-
-
-def drop_tables():
-    cur.commit()
-    cur.close()
-    subprocess.call("rm data.db")
-
 
 command()
