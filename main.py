@@ -13,7 +13,6 @@ def main():
         # get user input
         userInput = input(">")
 
-
         # check if user wants to quit, print help, or create/overwrite the database
         if userInput.lower() == "quit":
             keepRunning = False
@@ -48,7 +47,7 @@ def main():
             print("The database has not been created yet. Please use the load data command to create the database.")
 
         # case for if database exists, but user entered an invalid query
-        elif userInput != "help" and userInput != "quit":
+        elif userInput.lower() != "help" and userInput.lower() != "quit":
             print("Invalid query, type help for list of commands.")
 
 main()
