@@ -2,7 +2,7 @@ import sqlite3
 # function to take a string input and break it up into a list of components, being mindful of quotation marks
 
 def inputToList(userInput):
-    userInput = userInput.lower()
+    #userInput = userInput.lower()
     output = []
     indexOne = 0
     indexTwo = 0
@@ -50,12 +50,12 @@ def validateInput(userInput):
 
         # if Insults table was selected, check if column and id are valid
         if table == "insults":
-            if column in insultTableColumns and id in insultTableColumns:
+            if column in insultTableColumns and id in insultTableColumns or id in loserTableColumns:
                 isValid = True
 
         # if Losers table was selected, check if column and id are valid
         if table == "losers":
-            if column in loserTableColumns and id in loserTableColumns:
+            if column in loserTableColumns and id in loserTableColumns or id in loserTableColumns:
                 isValid = True
 
     # validate join statement

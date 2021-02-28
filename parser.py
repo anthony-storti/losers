@@ -19,9 +19,6 @@ def command():
     # select occupation from Losers table by loser_id example
     print(data.fetch(cur, "RP", "Losers", "occupation", "loser_id"))
 
-    # select tweet from Insult table by name example
-    print(data.fetch(cur, name))
-
     # load data example
     insultT, loserT = data.fetchAllQueries(cur)
     print("")
@@ -37,6 +34,6 @@ def command():
         print(loser)
 
     cur.commit()
-    drop_tables()
+
 
 command()

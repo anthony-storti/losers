@@ -40,7 +40,10 @@ def fetch(cur, userInput, table="null", column="null", id="null"):
         script = "SELECT tweet FROM Insults i, Losers l Where l.loser_id = i.loser_id  AND l.name = " +"\""+userInput+"\""
         cursor.execute(script)
         row = cursor.fetchone()
-        return row[0]
+        if not (row is None):
+            return row[0]
+        else:
+            return "Result not found!"
 
     script = "SELECT "+column+" FROM "+table+" WHERE "+id+" = "+"\""+userInput+"\""
     cursor.execute(script)
