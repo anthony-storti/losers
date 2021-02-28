@@ -7,34 +7,48 @@ def main():
 
     keepRunning  = True
 
-    cur = data.sqliteConnect()
-    data.init_db()
-
-    print(path.exists("data.db"))
-
+    # loop to allow for as many queries as desired, will run until user types quit
     while keepRunning:
+
+        # get user input
         userInput = input(">")
 
-        if userInput == "quit":
+
+        # check if user wants to quit, print help, or create/overwrite the database
+        if userInput.lower() == "quit":
             keepRunning = False
-        elif userInput == "help":
+
+        elif userInput.lower() == "help":
             printHelp()
 
+        elif userInput.lower() == "load data":
+            data.init_db()
+            print("Database created (or overwritten).")
 
+        # split user input string into individual components
+        userInputList = inputToList(userInput)
 
-        userInput = inputToList(userInput)
+        # if the query is valid, and the database exists, establish connection, do query, and print query results
+        if validateInput(userInputList) and path.exists("data.db"):
 
-        if validateInput(userInput):
-            if len(userInput) == 4:
+            cur = data.sqliteConnect()
 
-                if userInput[0] == "tweet" and userInput[1] == "insults" and userInput[2] == "loser_id":
-                    print(data.fetch(cur, userInput[3]))
+            if len(userInputList) == 4:
+                # case for join statement, allows for the user to type in the join statement as outlined for
+                # our query language
+                if userInputList[0] == "tweet" and userInputList[1] == "insults" and userInputList[2] == "losers":
+                    print(data.fetch(cur, userInputList[3]))
 
+                # case for non-join statement queries
                 else:
-                    print(data.fetch(cur, userInput[3], userInput[1], userInput[0], userInput[2]))
-        else:
-            print("Invalid query, type help for list of commands")
+                    print(data.fetch(cur, userInputList[3], userInputList[1], userInputList[0], userInputList[2]))
 
+        # if database hasn't been created, display error message to user
+        elif not path.exists("data.db"):
+            print("The database has not been created yet. Please use the load data command to create the database.")
 
+        # case for if database exists, but user entered an invalid query
+        elif userInput != "help" and userInput != "quit":
+            print("Invalid query, type help for list of commands.")
 
 main()

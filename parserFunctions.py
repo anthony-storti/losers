@@ -34,7 +34,6 @@ def inputToList(userInput):
 
 # function to validate input for errors, typos, that kinda thing
 # designed to take in a list of 4 string components: column, table, ID, and search term,
-# or just 1 term in the case of a join statement query
 # returns true if the userInput is valid, false otherwise
 def validateInput(userInput):
     isValid = False
@@ -48,19 +47,18 @@ def validateInput(userInput):
         table = userInput[1].lower()
         id = userInput[2].lower()
 
-        # if Insults table was selected, check if column and id are valid
+        # if Insults table was selected, check if column and id are valid, additional check for join statement
         if table == "insults":
-            if column in insultTableColumns and id in insultTableColumns or id in loserTableColumns:
+            if column in insultTableColumns and id in insultTableColumns or id == "losers":
                 isValid = True
 
         # if Losers table was selected, check if column and id are valid
         if table == "losers":
-            if column in loserTableColumns and id in loserTableColumns or id in loserTableColumns:
+            if column in loserTableColumns and id in loserTableColumns:
                 isValid = True
 
-    # validate join statement
-    elif len(userInput) == 1:
-        # only one term was given (search term) for join statement
+    # if only 2 terms are given, check if it's the load data command
+    elif len(userInput) == 2 and userInput[0].lower() == "load" and userInput[1].lower() == "data":
         isValid = True
 
     # otherwise the input list is too long or too short, return false
