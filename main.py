@@ -1,6 +1,6 @@
 
-from parserFunctions import inputToList
-from parserFunctions import validateInput
+from parserFunctions import *
+
 def main():
 
 
@@ -32,5 +32,5 @@ def main():
     # false
     print(validateInput(tooBig))
 
-
+    printHelp()
 main()
