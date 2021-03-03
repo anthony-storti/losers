@@ -75,12 +75,14 @@ def printHelp():
     print("Information about Losers:")
     print("To get twitter handle of a particular loser: Twitter_handle Losers Name 'Rick-Perry'")
     print("To get a name from a handle simply switch the two terms: Name Losers Twitter_handle '@GovernorPerry'")
+    print("To get an occupation from a name: Occupation Losers Name 'Rick-Perry'")
     print("Information about individual Insults:")
     print("To learn the date of an insult: Date Insults Insult 'dummy'")
     print("To get an insult from a specific date: Insult Insults Date '2015-07-16")
     print("to get the full text of a tweet from an insult: Tweet Insults Insult 'boring guy'")
     print("Misc other:")
     print("To perform a join statement about a specific loser: Tweet Insults Losers 'Rick-Perry'")
+    print("Note: the column, table and id (first 3 terms in a query) are all case-insensitive. The search term is case-sensitive." )
 
 # function to identify individual terms as tables, columns, etc
 
