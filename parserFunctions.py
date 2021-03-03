@@ -73,14 +73,14 @@ def printHelp():
     print("You can type the following types of commands with this interface:")
     print("Anything in 'quotes' should by input with the quotation marks!")
     print("Information about Losers:")
-    print("To get twitter handle of a particular loser: Handle Loser Name 'Name'")
-    print("To get a name from a handle simply switch the two terms: Name Loser Handle 'handle'")
+    print("To get twitter handle of a particular loser: Twitter_handle Losers Name 'Rick-Perry'")
+    print("To get a name from a handle simply switch the two terms: Name Losers Twitter_handle '@GovernorPerry'")
     print("Information about individual Insults:")
-    print("To learn the date of an insult: Date Insult 'insult'")
-    print("To get an insult from a specific date: Tweet Insult 'date'")
-    print("to get the full text of a tween from an insult: Tweet Insult 'insult'")
+    print("To learn the date of an insult: Date Insults Insult 'dummy'")
+    print("To get an insult from a specific date: Insult Insults Date '2015-07-16")
+    print("to get the full text of a tweet from an insult: Tweet Insults Insult 'boring guy'")
     print("Misc other:")
-    print("To get an tweet(s) about a specific loser: Tweet Insult loser 'loser'")
+    print("To perform a join statement about a specific loser: Tweet Insults Losers 'Rick-Perry'")
 
 # function to identify individual terms as tables, columns, etc
 
