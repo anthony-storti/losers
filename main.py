@@ -35,7 +35,7 @@ def main():
             if len(userInputList) == 4:
                 # case for join statement, allows for the user to type in the join statement as outlined for
                 # our query language
-                if userInputList[0] == "tweet" and userInputList[1] == "insults" and userInputList[2] == "losers":
+                if userInputList[0].lower() == "tweet" and userInputList[1].lower() == "insults" and userInputList[2].lower() == "losers":
                     print(data.fetch(cur, userInputList[3]))
 
                 # case for non-join statement queries
