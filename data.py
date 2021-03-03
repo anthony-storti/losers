@@ -30,7 +30,7 @@ def insertInsult(cur, titles):
 
 # This will flush the tables and read and import csv data through the bash
 
-def init_db():
+def initDb():
     os.system("sqlite3 data.db \".read create.sql\" \".mode csv\" \".import Losers.csv Losers\" \".import Insults.csv Insults\"")
 
 
@@ -67,7 +67,7 @@ def fetchAllQueries(cur):
     else:
         return "Result not found!"
 
-def drop_tables(cur):
+def dropTables(cur):
     cur.commit()
     cur.close()
     subprocess.call("rm data.db")

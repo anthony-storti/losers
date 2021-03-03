@@ -21,7 +21,7 @@ def main():
             printHelp()
 
         elif userInput.lower() == "load data":
-            data.init_db()
+            data.initDb()
             print("Database created (or overwritten).")
 
         # split user input string into individual components
