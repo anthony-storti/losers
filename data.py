@@ -4,8 +4,12 @@ import subprocess
 import sqlite3
 from sqlite3 import Error
 
-# connecting with the database and making the error handler
 
+    """
+    sqliteConnect
+    param: none
+    return: sqlite cursor object for data.db or print error
+    """
 
 def sqliteConnect():
     try:
@@ -14,25 +18,23 @@ def sqliteConnect():
     except Error:
         print(Error)
 
-# defining the insert table for Loser table
-
-
-def insertLoser(cur, titles):
-    cursorObject = cur.cursor()
-    cursorObject.execute('''INSERT INTO losers(loser_id, name, twitter_handle, occupation) VALUES(?,?,?,?)''', titles)
-    cur.commit()
-
-#defining the insert table for Insult table
-def insertInsult(cur, titles):
-    cursorObject = cur.cursor()
-    cursorObject.execute('''INSERT INTO Insults(insult_id, tweet, data, insult, loser_id) VALUES(?,?,?,?,?)''', titles)
-    cur.commit()
-
-# This will flush the tables and read and import csv data through the bash
+    """
+    initDb
+    param: none
+    funtion: to open os connection to db, process create.sql file to flush database, change database mode to read csv, read in losers.csv and insults.  csv to database
+    :return: none
+    """
 
 def initDb():
     os.system("sqlite3 data.db \".read create.sql\" \".mode csv\" \".import Losers.csv Losers\" \".import Insults.csv Insults\"")
 
+   
+    """
+    fetch
+    :param inputs: cur: a sqlite cursor object, userInput: a string looked for in the database, table: a string to specify which table to query,
+    column: a string to specify which column to query, id: a string used to query the join statement id
+    :return: A string retrieved from the sqlite database
+    """
 
 def fetch(cur, userInput, table="null", column="null", id="null"):
     cursor = cur.cursor()
@@ -53,23 +55,5 @@ def fetch(cur, userInput, table="null", column="null", id="null"):
     else:
         return "Result not found!"
 
-
-def fetchAllQueries(cur):
-    cursor = cur.cursor()
-    script = "SELECT * FROM Insults"
-    script1 = "SELECT * FROM Losers"
-    cursor.execute(script)
-    insultTable = cursor.fetchall()
-    cursor.execute(script1)
-    loserTable = cursor.fetchall()
-    if not (insultTable is None and loserTable is None):
-        return insultTable, loserTable
-    else:
-        return "Result not found!"
-
-def dropTables(cur):
-    cur.commit()
-    cur.close()
-    subprocess.call("rm data.db")
 
 
