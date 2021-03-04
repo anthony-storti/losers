@@ -2,7 +2,7 @@
 > Team 6
 ### Summary of program
 This Program allows a user to query a Sqlite database without using any SQL commands. The data within the database is comprised of two tables. The data is modeled on insults tweeted by former President Donald Trump
-The database is comprised of two tables; an insults table and a losers table. 
+The database is comprised of two tables; an insults table and a losers table.
 
 ### Requirements
 * The system running this program must have the following:
@@ -10,7 +10,9 @@ The database is comprised of two tables; an insults table and a losers table.
     * Python 3.x [download](https://www.python.org/downloads/)
     
 ### Running the Program
+* The program is run from main.py
 * Before accepting a query the user must enter the command "load data" to initialize the database and flush old data.
+    - The program uses two .csv files to load data in the sqlite database located in data.db. The datbase is cleared and build on each call of load data. The create.sql file is called to perform this action. 
 * After the data has been initialized the user can begin querying the database of enter "help" to access a list of all available commands and formatting
 - The program accepts the following query language:
     - Losers Table Queries
