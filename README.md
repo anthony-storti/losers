@@ -15,14 +15,14 @@ The database is comprised of two tables. An insults table and a losers table.
 >The program accepts the following query language:
     - Losers Table Queries
         - To get twitter handle of a particular loser type: Twitter_handle Losers Name 'firstName-lastName' 
-        - To get a loser name from their twitter handle type: Name Losers Twitter_handle '@twitterHandle')
-        - To get the occupation of a loser type: Occupation Losers Name 'firstName-lastName')
+        - To get a loser name from their twitter handle type: Name Losers Twitter_handle '@twitterHandle'
+        - To get the occupation of a loser type: Occupation Losers Name 'firstName-lastName'
     - Insults Table Queries
-        - To get the date of a particular insult type: Date Insults Insult 'insult')
+        - To get the date of a particular insult type: Date Insults Insult 'insult'
         - To get an insult from a specific date type: Insult Insults Date 'yyyy-mm-dd')
-        - To get the full text of a tweet from an insult type: Tweet Insults Insult 'insult')
+        - To get the full text of a tweet from an insult type: Tweet Insults Insult 'insult'
     - Insult Loser Join Query
-        - To get a tweet about a specific Loser type: Tweet Insults Losers 'firstName-LastName')
+        - To get a tweet about a specific Loser type: Tweet Insults Losers 'firstName-LastName'
     - Important Notes about formatting:
         - The query field show in quotations must be entered with quotations in the program
         - Syntax is important. 
