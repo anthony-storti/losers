@@ -1,5 +1,10 @@
-import sqlite3
-# function to take a string input and break it up into a list of components, being mindful of quotation marks
+"""
+inputToList
+param: string of user input
+function: process user input into a list of individual components while maintaining syntax
+return: return list of string components
+"""
+
 
 def inputToList(userInput):
     #userInput = userInput.lower()
@@ -31,10 +36,14 @@ def inputToList(userInput):
     return output
 
 
+"""
+ValidateInput
+param: list of 4 string components: column, table, ID, and search term
+function: To Validate user input checking for syntax errors, typos, etc. 
+return: bool true if user input is valid, false otherwise
+"""
 
-# function to validate input for errors, typos, that kinda thing
-# designed to take in a list of 4 string components: column, table, ID, and search term,
-# returns true if the userInput is valid, false otherwise
+
 def validateInput(userInput):
     isValid = False
     insultTableColumns = ["insult_id", "tweet", "date", "insult", "loser_id"]
@@ -68,7 +77,13 @@ def validateInput(userInput):
     return isValid
 
 
-#function to print commands
+"""
+PrintHelp
+param: none
+function: print help statements to console 
+return: none
+"""
+
 def printHelp():
     print("You can type the following types of commands with this interface:")
     print("Anything in 'quotes' should by input with the quotation marks!")
@@ -83,12 +98,8 @@ def printHelp():
     print("Misc other:")
     print("To perform a join statement about a specific loser: Tweet Insults Losers 'Rick-Perry'")
     print("Note: the column, table and id (first 3 terms in a query) are all case-insensitive. The search term is case-sensitive." )
+    print("To initialize database enter: load data")
 
-# function to identify individual terms as tables, columns, etc
-
-
-#function to run the querys
-#def do_query(x,y,z):
 
 
 

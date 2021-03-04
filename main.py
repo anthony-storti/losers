@@ -4,6 +4,7 @@ import data
 import os.path as path
 
 def main():
+    print("enter: help \n or load data and begin query")
 
     keepRunning  = True
 
