@@ -12,7 +12,7 @@ The database is comprised of two tables. An insults table and a losers table.
 ### Running the Program
 * Before accepting a query the user must enter the command "load data" to initialize the database and flush old data.
 * After the data has been initialized the user can begin querying the database of enter "help" to access a list of all available commands and formatting
-> The program accepts the following query language:
+- The program accepts the following query language:
     - Losers Table Queries
         - To get the twitter handle of a particular loser type: Twitter_handle Losers Name 'firstName-LastName'
         - To get a loser name from their twitter handle type: Name Losers Twitter_handle '@twitterHandle'
